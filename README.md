@@ -6,7 +6,7 @@
 A 3D Globe component for data visualization using [A-Frame](https://aframe.io).
 
 <p align="center">
-  <a href="assets/img/portfolio/img/Virtual_Globe1.jpeg"><img width="80%" src="assets/img/portfolio/img/Virtual_Globe1.jpeg"></a>
+  <a href="assets/Virtual_Globe1.jpeg"><img width="80%" src="assets/Virtual_Globe1.jpeg"></a>
 </p>
 
 
