@@ -2,12 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
     <title>A-Frame 3D Globe Component Example</title>
-    <meta name="description" content="Example for 3D Globe component."></meta>
+    <meta name="description" content="Example for 3D Globe component.">
 
     <script src="//unpkg.com/d3"></script>
     <script src="//unpkg.com/aframe"></script>
-    <script src="../../dist/aframe-globe-component.min.js"></script>
+    <script src="dist/aframe-globe-component.min.js"></script>
     <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 
     <style>
@@ -120,8 +121,6 @@
         " rotation="0 0 0" animation__rotate="property: rotation; to: 0 360 0; loop: true; dur: 30000; easing: linear;"></a-entity>
     </a-scene>
 
-    <h1 style="margin-bottom: 20px;">jjh</h1>
-
     <!-- Add the legend element after the A-Frame scene -->
     <div class="legend" id="legend">
       <div class="legend-item">
@@ -148,8 +147,6 @@
       <option value="ssp126">SSP 126</option>
       <option value="ssp245">SSP 245</option>
       <option value="ssp370">SSP 370</option>
-      <option value="ssp370-lowNTCF">SSP 370 lowNTCF</option>
-      <option value="ssp370">SSP 370 lowNTCFCH4</option>
       <option value="ssp585">SSP 585</option>
     </select>
   </div>
@@ -173,7 +170,7 @@
   <script>
 let dataArray; // Declare the variable in the outer scope
 
-fetch('../datasets/O3_data_IPCC.csv')
+fetch('datasets/O3_data_IPCC.csv')
   .then(res => res.text())
   .then(csv => d3.csvParse(csv, ({ Year, Scenario, Africa, 'Asia-Pacific Developed': AsiaPacificDeveloped, 'Eastern Asia': EasternAsia, Europe, Eurasia, 'Latin America and Caribbean': LatinAmericaCaribbean, 'Middle East': MiddleEast, 'North America': NorthAmerica, 'Southern Asia': SouthernAsia, 'South-East Asia and Developing Pacific': SouthEastAsiaDevelopingPacific, Global }) => ({
     Year: +Year,
@@ -202,9 +199,6 @@ fetch('../datasets/O3_data_IPCC.csv')
     console.error('Error fetching data:', error);
   });
 
-// You can use the "dataArray" variable here, but be aware that it might be undefined
-// if the fetch operation hasn't finished yet. You may need to use it in a callback,
-// another function, or after a certain event to ensure the data is available.
 
 // For example, if you want to use the data after fetching, you can do something like this:
 function processData() {
@@ -917,7 +911,7 @@ function updateDataAndGlobe() {
 }
 
 // Start the interval
-const intervalId = setInterval(updateDataAndGlobe, interval);
+let intervalId = setInterval(updateDataAndGlobe, interval);
 
 </script>
 
